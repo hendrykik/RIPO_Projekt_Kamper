@@ -1,10 +1,10 @@
 import cv2
 import mediapipe as mp
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("IMG_8456.mov")
 
 mpHands = mp.solutions.hands
-hands = mpHands.Hands()
+hands = mpHands.Hands(False, 2, 1, 0.136, 0.3)
 mpDraw = mp.solutions.drawing_utils
 
 while True:
