@@ -1,7 +1,7 @@
 import cv2
 from numpy import *
 
-cap = cv2.VideoCapture('IMG_8463.mov')
+cap = cv2.VideoCapture('/Users/janzemlo/Desktop/ripo/video/IMG_8463.mov')
 
 
 while True:
@@ -13,17 +13,17 @@ while True:
     diff = (2, 2, 2)
 
 
-    door_top_pixel = (600, 0)
+    door_top_pixel = (570, 30)
 
     # wykryj wnętrze drzwi kampera
     retval, rect, _, _ = cv2.floodFill(img, mask, door_top_pixel, (0, 255, 0), diff, diff)
 
     print(retval)
     # porównaj rozmiar obszaru zalania z wymiarami drzwi kampera
-    if (retval > 360000):
+    if (retval > 361000):
         print("camper door close")
     else:
-        print("camper door open")
+       print("camper door open")
 
     cv2.imshow("Image", img)
     cv2.waitKey(1)
