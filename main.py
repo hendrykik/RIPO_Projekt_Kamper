@@ -6,7 +6,7 @@ def sprawdz_wspolrzedne(x, y, shp):
     num_vertices = len(shp)
     inside = False
 
-    # sprawdzanie czy punkt jest pod markiza
+    # sprawdzanie czy punkt jest w zasięgu okna
     # shp: lista zawierająca wierzchołki obszaru w kolejności przeciwnie do ruchu wskazówek zegara
     # dlatego sprawdzamy po krawędziach czy punkt jest na zewnątrz
     for i in range(num_vertices):
@@ -42,9 +42,9 @@ while True:
             a, b = int(handsMulti.landmark[mpHands.HandLandmark.RING_FINGER_TIP].x * img.shape[1]), int(handsMulti.landmark[mpHands.HandLandmark.RING_FINGER_TIP].y * img.shape[0])
             punkty.append((a, b))
 
-    shp = [(350, 1080), (1600, 1080), (1600, 540), (350, 540)]
+    shp = [(0, 1080), (1920, 1080), (1600, 540), (350, 540)]
 
-    #sprawdzanie czy czlowiek jest pod markiza
+    #sprawdzanie czy reka jest w zasiegu okna
     reka = False
     for x, y in punkty:
         if sprawdz_wspolrzedne(x, y, shp):
@@ -52,7 +52,7 @@ while True:
     if reka:
         print("reka w zasięgu okna")
 
-    # rysowanie pola markizy
+    # rysowanie pola okna
     shp = np.array(shp, np.int32).reshape((-1, 1, 2))
     cv2.polylines(img, [shp], True, (0, 255, 0), 2)
 
