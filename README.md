@@ -2,4 +2,4 @@
 
 System bezpieczeństwa kampera poprzez wykrywanie niebezpieczeństw z obrazu kamer.
 
-Projekt ma na celu zaprojektowanie programu, który na podstawie nagrania video z kampera ma za zadanie wykryć sytuacje niebezpieczne i zgłosić odpowiedni alarm.
+Pełna dokumentacja w pliku RIPO_doc
